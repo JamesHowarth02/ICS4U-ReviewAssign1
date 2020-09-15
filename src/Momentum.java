@@ -16,7 +16,7 @@ public class Momentum {
         velocity = scan.nextDouble();
         
         momentum = mass * velocity;
-        System.out.println(String.format("Calculated Momentum: %.2f", momentum));
+        System.out.println(String.format("Calculated Momentum is: %.2f", momentum));
     }
     
 }
