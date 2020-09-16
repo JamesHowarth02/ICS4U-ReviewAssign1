@@ -10,7 +10,7 @@ public class Momentum {
         double numberInput = 0;
         System.out.print(inputText);
         try{
-            numberInput = scanobj.nextInt();
+            numberInput = scanobj.nextDouble();
             return numberInput;
         }catch(Exception e) {
             scanobj.next();
