@@ -1,3 +1,5 @@
+package Part1;
+
 import java.awt.Color;
 import java.util.Scanner;
 import BreezySwing.*;
