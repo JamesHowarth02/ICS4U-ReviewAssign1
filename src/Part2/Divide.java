@@ -1,21 +1,32 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Part2;
 
-/**
- *
- * @author jame1850
- */
-public class Divide {
+import java.util.Scanner;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+public class Divide {
+    public static int persistInput(String inputText, Scanner scanobj) {
+        int numberInput = 0;
+        System.out.print(inputText);
+        try{
+            numberInput = scanobj.nextInt();
+            return numberInput;
+        }catch(Exception e) {
+            scanobj.next(); // You must supply this otherwise you enter an infinite recursive loop.
+            System.out.println("[!] Invalid input detected: please enter a valid number.");
+            return persistInput(inputText, scanobj);
+        }
     }
-    
+    public static void main(String[] args) {
+        Scanner scanobj = new Scanner(System.in);
+        int firstNumber = persistInput("[?] Please enter the first number: ", scanobj);
+        int secondNumber = persistInput("[?] Please enter the second number: ", scanobj);
+        
+        int largernumber = Math.max(firstNumber, secondNumber);
+        int smallernumber = Math.min(firstNumber, secondNumber);
+        
+        int quotient = largernumber/smallernumber;
+        int remainder = largernumber%smallernumber;
+        
+        System.out.format("Quotient: %d\n", quotient);
+        System.out.format("Remainder: %d\n", remainder);
+    }  
 }
