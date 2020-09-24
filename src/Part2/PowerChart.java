@@ -23,16 +23,16 @@ public class PowerChart {
     public static void main(String[] args) {
         Scanner scanobj = new Scanner(System.in);
         int Exponent = persistInput("Please enter the amount of rows for the chart: ", scanobj);
-        for (int i = 0; i < 8; i++) {
-            System.out.format("%10s", i + "^X");
-        }
+        System.out.format("%10s", "X");
+        System.out.format("%10s", "2^X");
         System.out.println("");
-        for (int i = 0; i < 8; i++) {
+        for (int i = 1; i <= 2; i++) {
             System.out.format("%10s","---");
         }
-        System.out.println("");
-        for (int i = 0; i < 8; i++) {
-            System.out.format("%10s",Math.pow(Exponent, i), 6 + i);
+        for (int i = 1; i <= Exponent; i++) {
+            System.out.println("");
+            System.out.format("%10s", i);
+            System.out.format("%10s", Math.pow(2, i));
         }
     } 
 }

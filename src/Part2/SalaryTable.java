@@ -1,21 +1,39 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Part2;
 
-/**
- *
- * @author jame1850
- */
+import java.text.NumberFormat;
+
 public class SalaryTable {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        double oldPay = 0;
+        double basePay = 40000;
+        double increase = 1.3;
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        
+        System.out.format("%10s", "YEAR");
+        System.out.format("%15s", "OLD SALARY");
+        System.out.format("%15s", "RAISE");
+        System.out.format("%25s", "NEW SALARY\n");
+        
+        System.out.format("%10s", "----");
+        System.out.format("%15s", "----------");
+        System.out.format("%15s", "-----");
+        System.out.format("%25s", "----------\n");
+        
+        for (int i = 1; i < 10; i++) {
+            double raise = oldPay * increase;
+            if(oldPay == 0) {
+                oldPay = basePay;
+                raise = basePay;
+            }
+            String oldPayText = formatter.format(oldPay);
+            String raiseText = formatter.format(raise);
+            String salaryText = formatter.format((oldPay + raise));
+            System.out.format("%10s", i);
+            System.out.format("%15s", oldPayText);
+            System.out.format("%20s", raiseText);
+            System.out.format("%20s", salaryText + "\n");
+            oldPay = oldPay + raise;
+        }
     }
-    
 }
